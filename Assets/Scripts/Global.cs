@@ -39,6 +39,8 @@ public class Global : MonoBehaviour
     void FixedUpdate()
     {
         if (Input.GetKey (KeyCode.Escape)) {
+            ScoreScript.UpdateHighScore(score);
+            PlayerPrefs.SetInt(GameOverScript.lastScoreKey, score);
             SceneManager.LoadScene("Menu");
         } else if (Input.GetKey(KeyCode.Print) || Input.GetKey(KeyCode.F12)) {
             ScreenCapture.CaptureScreenshot("SomeLevel");
